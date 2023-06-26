@@ -100,14 +100,45 @@ class Quiz {
             return User.getCookie('solved_quiz').split(',');
         }        
     }
+
+    // create answer bubbles
+    createAnswerBubble() {
+        const answer_arr = this.answer.split('');
+        const bubble_body = document.getElementById('bubble_body');
+        const bubbles = [];
+
+        for (let i=0; i < answer_arr.length; i++) {
+            // create bubbles
+            bubbles[i] = document.createElement('div');
+            bubbles[i].innerText = answer_arr[i];
+            bubbles[i].classList.add('bubble', `b${i + 1}`);
+            bubble_body.appendChild(bubbles[i]);
+
+            // pop bubble on click event
+            bubbles[i].addEventListener('click', e => {
+                alert(answer_arr[i])
+            });
+        }
+    }
+
+
+    // pop bubble
+    popBuble(x) {
+        
+    }
 }
 
 /* game page */
 if (document.getElementById('q')) {
     let u = new User();
     console.log(u.user);
+
     let q = new Quiz();
+    console.log(q);
+    // show the quiz
     document.getElementById('q').innerText = q.quiz;
+    q.createAnswerBubble();
+
 }
 
 

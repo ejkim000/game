@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;200;300;400;500;600;700;800&family=Bruno+Ace&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Bruno Ace', cursive; */
+    font-family: 'Albert Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    font-size: 4rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.bubble-body {
+    display: grid;
+    grid-column-start: auto;
+    grid-template-columns: repeat(10, 1fr) ;
+    height: 500px;
+    padding-top: 300px;
+}
+@keyframes mymove {
+    from {
+        bottom: 0px;
+    }
+
+    to {
+        bottom: 500px;
+    }
+}
+
+.bubble {
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    font-family: 'Bruno Ace', cursive;
+    text-align: center;
+    font-size: 4rem;
+    padding: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    position: relative;
+    animation: mymove 5s infinite;
+}
+
+.b1 {
+    animation-timing-function: linear;
+    background-color: hotpink;
+}
+
+.b2 {
+    animation-timing-function: ease;
+    background-color: skyblue;
+}
+
+.b3 {
+    animation-timing-function: ease-in;
+    background-color: lightgreen;
+}
+
+.b4 {
+    animation-timing-function: ease-out;
+    background-color: lightcoral;
+}
+
+.b5 {
+    animation-timing-function: ease-in-out;
+    background-color: #5845c6;
+}
+
+
+footer {
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #666;
+    background-color: #ffe3f8;
+    padding: 1rem;
+}
