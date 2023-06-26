@@ -23,6 +23,9 @@ header {
     grid-template-columns: repeat(10, 1fr) ;
     height: 500px;
     padding-top: 300px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
 }
 @keyframes mymove {
     from {
@@ -36,13 +39,13 @@ header {
 
 .bubble {
     border-radius: 50%;
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
     font-family: 'Bruno Ace', cursive;
     text-align: center;
-    font-size: 4rem;
-    padding: 1rem;
-    margin: 1rem;
+    font-size: 3.5rem;
+    padding: 0.8rem;
+    margin: 0.5rem;
     cursor: pointer;
     position: relative;
     animation: mymove 5s infinite;
@@ -71,8 +74,33 @@ header {
 .b5 {
     animation-timing-function: ease-in-out;
     background-color: #5845c6;
+    color: white;
+}
+.b6 {
+    animation-timing-function: linear;
+    background-color: hotpink;
 }
 
+.b7 {
+    animation-timing-function: ease;
+    background-color: skyblue;
+}
+
+.b8 {
+    animation-timing-function: ease-in;
+    background-color: lightgreen;
+}
+
+.b9 {
+    animation-timing-function: ease-out;
+    background-color: lightcoral;
+}
+
+.b10 {
+    animation-timing-function: ease-in-out;
+    background-color: #5845c6;
+    color: white;
+}
 
 footer {
     width: 100%;

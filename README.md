@@ -21,4 +21,12 @@
     - question id: number
     - question : string
     - answer : string
-    
+
+
+## Referance
+1. CSS
+    - Random position
+    https://jsfiddle.net/tiffhockin/fesvq8u0/
+
+suffle array
+    https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array

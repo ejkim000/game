@@ -6,13 +6,13 @@ class User {
             'clear_time': 0,
             'rank': 0
         };
-        
+
         // new user
         if (user_name) {
             this.user.user_name = user_name;
         } else {
             this.user.user_name = User.getCookie('user_name');
-            this.user.solved_quiz = (User.getCookie('solved_quiz'))? User.getCookie('solved_quiz') : [] ;
+            this.user.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz') : [];
             this.user.clear_time = User.getCookie('clear_time');
             this.user.rank = User.getCookie('rank');
         }
@@ -60,7 +60,7 @@ class User {
     // set user's info to cookie
     static setCookie(user) {
         document.cookie = `user_name=${user.user_name}`;
-        document.cookie = `solved_quiz=${user.solved_quiz.join(',')}`; 
+        document.cookie = `solved_quiz=${user.solved_quiz.join(',')}`;
         document.cookie = `clear_time=${user.clear_time}`;
         document.cookie = `rank=${user.rank}`;
 
@@ -98,16 +98,24 @@ class Quiz {
             return [];
         } else {
             return User.getCookie('solved_quiz').split(',');
-        }        
+        }
     }
 
     // create answer bubbles
     createAnswerBubble() {
-        const answer_arr = this.answer.split('');
         const bubble_body = document.getElementById('bubble_body');
         const bubbles = [];
+        let answer_arr = this.answer.split('');
 
-        for (let i=0; i < answer_arr.length; i++) {
+        // add some more letters
+        answer_arr.push('Z');
+        answer_arr.push('T');
+        answer_arr.push('p');
+
+        // shuffle array
+        answer_arr = this.shuffleArray(answer_arr);
+
+        for (let i = 0; i < answer_arr.length; i++) {
             // create bubbles
             bubbles[i] = document.createElement('div');
             bubbles[i].innerText = answer_arr[i];
@@ -121,10 +129,19 @@ class Quiz {
         }
     }
 
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
 
     // pop bubble
     popBuble(x) {
-        
+
     }
 }
 
