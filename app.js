@@ -104,13 +104,17 @@ class Quiz {
     // create answer bubbles
     createAnswerBubble() {
         const bubble_body = document.getElementById('bubble_body');
+        const user_answer = document.getElementById('a');
         const bubbles = [];
+        const audio = new Audio('./sound/bubble-pop.wav');
+
         let answer_arr = this.answer.split('');
 
-        // add some more letters
+        // add some random letters : have to work on it
+        
         answer_arr.push('Z');
-        answer_arr.push('T');
-        answer_arr.push('p');
+        // answer_arr.push('T');
+        // answer_arr.push('p');
 
         // shuffle array
         answer_arr = this.shuffleArray(answer_arr);
@@ -124,10 +128,30 @@ class Quiz {
 
             // pop bubble on click event
             bubbles[i].addEventListener('click', e => {
-                alert(answer_arr[i])
+                // pop the bubble : have to add the pop pciture
+                bubbles[i].classList.add('pop');
+                // after pop, let ithe bubble disappear in 0.1 sec
+                setTimeout(function() { bubbles[i].classList.add('hide'); }, 100);
+                audio.play(); // make 404 error : check this issue
+
+                // add the popped alphabet in the answer area
+                user_answer.innerText += answer_arr[i];
+
+                // check the answer
+                this.checkAnswer(user_answer.innerText);
+
             });
         }
     }
+
+    checkAnswer(ans) {
+        if (ans == "answer") {
+            // save the answer to solved quiz : local storage
+
+            // move on to the next question
+        }
+    }
+
 
     shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -139,9 +163,14 @@ class Quiz {
         return array;
     }
 
-    // pop bubble
-    popBuble(x) {
-
+    timer(timer, sec) {
+        let myTimer = setInterval( ()=> {
+                timer.innerText = --sec;
+                if(sec <= 0) {
+                    clearInterval(myTimer);
+                    alert('Time Over');
+                }
+        }, 1000);
     }
 }
 
@@ -152,9 +181,15 @@ if (document.getElementById('q')) {
 
     let q = new Quiz();
     console.log(q);
+
+    // set timer
+    q.timer(document.getElementById('timer'), 60);
+
     // show the quiz
     document.getElementById('q').innerText = q.quiz;
     q.createAnswerBubble();
+
+
 
 }
 

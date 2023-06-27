@@ -27,6 +27,25 @@
 1. CSS
     - Random position
     https://jsfiddle.net/tiffhockin/fesvq8u0/
+    - animation
+    https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_speed
+    - gradient
+    https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient
+    - animation examples
+    https://blog.hubspot.com/website/css-animation-examples
+    https://animate.style/
+    - bubble
+    https://codepen.io/Mark_Bowley/pen/PozwyP
+    
 
-suffle array
+2. js
+    - Random positioning
+    https://jsfiddle.net/tiffhockin/fesvq8u0/
+    https://codepen.io/osublake/pen/WjWPob
+    https://codepen.io/maysi/pen/mPKmVB
+
+    - suffle array
     https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+
+3. sound
+    - https://mixkit.co/free-sound-effects/pop/

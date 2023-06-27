@@ -15,14 +15,44 @@ header {
     font-size: 4rem;
     font-weight: 600;
     width: 100%;
+    text-align: center;
+    margin: 1.5rem;
 }
-
+.question-block {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+.question{
+    flex: 3;
+    font-size: 2rem;
+}
+.timer{
+    flex: 1;
+    align-items: flex-end;
+    font-size: 2rem;
+    text-align: right;
+}
+.answer-block {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+.answer {
+    flex: 3;
+    font-size: 2rem;
+}
+.skip {
+    flex: 1;
+    align-items: flex-end;
+    font-size: 2rem;
+}
 .bubble-body {
     display: grid;
     grid-column-start: auto;
-    grid-template-columns: repeat(10, 1fr) ;
+    grid-template-columns: repeat(12, 1fr) ;
     height: 500px;
-    padding-top: 300px;
+    padding-top: 400px;
     width: 90%;
     margin: 0 auto;
     position: relative;
@@ -33,7 +63,7 @@ header {
     }
 
     to {
-        bottom: 500px;
+        bottom: 400px;
     }
 }
 
@@ -48,57 +78,61 @@ header {
     margin: 0.5rem;
     cursor: pointer;
     position: relative;
-    animation: mymove 5s infinite;
+    animation: mymove 8s infinite;
 }
-
+.pop {
+    background: radial-gradient(rgba(255, 255, 255, 0.8), black);
+}
+.hide {
+    visibility: hidden;
+}
 .b1 {
     animation-timing-function: linear;
-    background-color: hotpink;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
 }
 
 .b2 {
     animation-timing-function: ease;
-    background-color: skyblue;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), skyblue);
 }
 
 .b3 {
     animation-timing-function: ease-in;
-    background-color: lightgreen;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), lightgreen);
 }
 
 .b4 {
     animation-timing-function: ease-out;
-    background-color: lightcoral;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), lightcoral);
 }
 
 .b5 {
     animation-timing-function: ease-in-out;
-    background-color: #5845c6;
-    color: white;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), #5845c6);
 }
 .b6 {
     animation-timing-function: linear;
-    background-color: hotpink;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
 }
 
 .b7 {
     animation-timing-function: ease;
-    background-color: skyblue;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), skyblue);
 }
 
 .b8 {
     animation-timing-function: ease-in;
-    background-color: lightgreen;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), lightgreen);
 }
 
 .b9 {
     animation-timing-function: ease-out;
-    background-color: lightcoral;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), lightcoral);
 }
 
 .b10 {
     animation-timing-function: ease-in-out;
-    background-color: #5845c6;
+    background:radial-gradient(rgba(255, 255, 255, 0.1), #5845c6);
     color: white;
 }
 
@@ -107,6 +141,6 @@ footer {
     font-size: 0.8rem;
     text-align: center;
     color: #666;
-    background-color: #ffe3f8;
+    background-color: #dfdfdf;
     padding: 1rem;
 }
