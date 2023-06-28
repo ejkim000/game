@@ -23,7 +23,7 @@
     - answer : string
 
 
-## Referance
+## Resources
 1. CSS
     - Random position
     https://jsfiddle.net/tiffhockin/fesvq8u0/

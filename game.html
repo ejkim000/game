@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="data.js" defer></script>
     <script type="text/javascript" src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/302c6d6ffe.js" crossorigin="anonymous"></script>
     <title>Bubble Pop Quiz</title>
 </head>
 
 <body>
-    <header>Bubble Pop Quiz</header>
+    <header><h1>Bubble Pop Quiz</h1></header>
     <main>
         <section class="question-block">
             <div class="question">Question: <span id="q"></span></div>
@@ -20,13 +21,22 @@
         <section class="bubble-body" id="bubble_body"></section>
         <section class="answer-block">
             <div class="answer">Answer: <span id="a"></span></div>
-            <div class="skip">
-                <button id="skip">Skip</button>
-            </div>
+            <div class="skip">Skip &nbsp; <i class="fa-solid fa-right-long fa-beat"></i></div>
+        </section>
+        <section class="game-over show">
+            <h1>Game Over</h1>
+            <ul class="rank">
+                <li>1. ABDC<span>53</span></li>
+                <li>2. Kim<span>53</span></li>
+                <li>3. hey<span>53</span></li>
+                <li>4. ddddd<span>53</span></li>
+                <li>5. sammy<span>53</span></li>
+            </ul>
+            <div class="start-over">Start Over</div>
         </section>
     </main>
     <footer>
-        &copy; Eunjung Kim 2023
+        &copy; EJ 2023
     </footer>
 </body>
 

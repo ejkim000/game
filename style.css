@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;200;300;400;500;600;700;800&family=Bruno+Ace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;200;300;400;500;600;700;800&family=Bruno+Ace&family=Luckiest+Guy&display=swap');
 
 * {
     box-sizing: border-box;
@@ -11,136 +11,243 @@ body {
     flex-direction: column;
 }
 
-header {
-    font-size: 4rem;
-    font-weight: 600;
+header h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 10vw;
+    -webkit-text-fill-color: yellowgreen;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 0.5vw;
     width: 100%;
     text-align: center;
-    margin: 1.5rem;
+    margin: 1vw;
 }
+
 .question-block {
     display: flex;
     flex-direction: row;
-    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+    margin: 1vw;
+    padding: 2vw;
+    border-radius: 10px;
+    background-color: #5845c6;
+    color: white;
 }
-.question{
-    flex: 3;
-    font-size: 2rem;
+
+.question {
+    flex: 6;
 }
-.timer{
+
+.timer {
     flex: 1;
     align-items: flex-end;
-    font-size: 2rem;
-    text-align: right;
+    text-align: center;
+    border-radius: 10px;
+    background-color: yellowgreen;
+    color: #5845c6;
+    padding: 0.5rem;
+    font-weight: 700;
 }
+
 .answer-block {
     display: flex;
     flex-direction: row;
-    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+    margin: 1vw;
+    padding: 2vw;
+    border-radius: 10px;
+    color: #5845c6;
+    background-color: yellowgreen;
 }
+
 .answer {
-    flex: 3;
-    font-size: 2rem;
+    flex: 6;
+    font-weight: 700;
 }
+
 .skip {
-    flex: 1;
+    flex: 2;
     align-items: flex-end;
-    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    color: yellowgreen;
+    background-color: #5845c6;
+    padding: 0.5rem;
+    font-weight: 700;
 }
+
 .bubble-body {
     display: grid;
     grid-column-start: auto;
-    grid-template-columns: repeat(12, 1fr) ;
-    height: 500px;
-    padding-top: 400px;
-    width: 90%;
+    grid-template-columns: repeat(10, 1fr);
+    height: 55vh;
+    padding-top: 45vh;
+    width: 95vw;
     margin: 0 auto;
     position: relative;
+    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    border-radius: 10px;
 }
+
 @keyframes mymove {
     from {
         bottom: 0px;
     }
 
     to {
-        bottom: 400px;
+        bottom: 45vh;
     }
 }
 
 .bubble {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 6vw;
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
     border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
-    font-family: 'Bruno Ace', cursive;
+    width: 9vw;
+    height: 9vw;
+    /* to make same width & height */
     text-align: center;
-    font-size: 3.5rem;
-    padding: 0.8rem;
-    margin: 0.5rem;
+    padding: 1vw;
+    margin: 0.2vw;
     cursor: pointer;
     position: relative;
     animation: mymove 8s infinite;
 }
+
 .pop {
     background: radial-gradient(rgba(255, 255, 255, 0.8), black);
 }
+
 .hide {
     visibility: hidden;
 }
+
 .b1 {
     animation-timing-function: linear;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), #eaea5c);
 }
 
 .b2 {
     animation-timing-function: ease;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), skyblue);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), skyblue);
 }
 
 .b3 {
     animation-timing-function: ease-in;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), lightgreen);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), lightgreen);
 }
 
 .b4 {
     animation-timing-function: ease-out;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), lightcoral);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), lightcoral);
 }
 
 .b5 {
     animation-timing-function: ease-in-out;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), #5845c6);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), #5845c6);
 }
+
 .b6 {
     animation-timing-function: linear;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), #EADEDB);
 }
 
 .b7 {
-    animation-timing-function: ease;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), skyblue);
+    animation-timing-function: ease-in;
+    background: radial-gradient(rgba(255, 255, 255, 0.1), #535353);
 }
 
 .b8 {
-    animation-timing-function: ease-in;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), lightgreen);
+    animation-timing-function: ease-in-out;
+    background: radial-gradient(rgba(255, 255, 255, 0.1), #517de4);
 }
 
 .b9 {
     animation-timing-function: ease-out;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), lightcoral);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
+
 }
 
 .b10 {
-    animation-timing-function: ease-in-out;
-    background:radial-gradient(rgba(255, 255, 255, 0.1), #5845c6);
+    animation-timing-function: ease;
+    background: radial-gradient(rgba(255, 255, 255, 0.1), #0f9e35);
     color: white;
 }
 
-footer {
+.game-over {
+    height: 60vw;
+    width: 70vw;
+    margin: 0 auto;
+    position: relative;
+    background-color: rgba(26, 26, 26, 0.4);
+    box-shadow: 5px 5px 15px rgba(26, 26, 26, 0.5);
+    border-radius: 10px;
+}
+
+.game-over.show {
+    top: -60vh;
+}
+
+.game-over.hide {
+    visibility: hidden;
+    height: 0px;
+}
+
+.game-over h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 8vw;
+    -webkit-text-fill-color: black;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: yellowgreen;
+    letter-spacing: 0.5vw;
     width: 100%;
-    font-size: 0.8rem;
     text-align: center;
-    color: #666;
-    background-color: #dfdfdf;
-    padding: 1rem;
+    margin: 2vw;
+    padding: 2vw;
+}
+
+.game-over li {
+    font-size: 3.5vw;
+    list-style: none;
+    line-height: 1.5;
+    color: yellowgreen;
+    font-weight: 700;
+    width: 90%;
+
+}
+
+.game-over li span {
+    float: right;
+}
+
+.game-over .start-over {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 5vw;
+    font-weight: 400;
+    letter-spacing: 0.5vw;
+    width: 40vw;
+    text-align: center;
+    border-radius: 10px;
+    background-color: yellowgreen;
+    color: #5845c6;
+    padding: 0.5rem;
+    margin: 3vh auto;
+    cursor: pointer;
+}
+
+footer {
+    width: 100vw;
+    font-size: 0.7rem;
+    text-align: right;
+    color: yellowgreen;
+    padding: 0.2rem 1.5rem;
 }

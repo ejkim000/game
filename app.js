@@ -107,8 +107,9 @@ class Quiz {
         const user_answer = document.getElementById('a');
         const bubbles = [];
         const audio = new Audio('./sound/bubble-pop.wav');
-
         let answer_arr = this.answer.split('');
+        let answer_result = '';
+
 
         // add some random letters : have to work on it
         
@@ -128,30 +129,26 @@ class Quiz {
 
             // pop bubble on click event
             bubbles[i].addEventListener('click', e => {
+                e.preventDefault;
                 // pop the bubble : have to add the pop pciture
                 bubbles[i].classList.add('pop');
                 // after pop, let ithe bubble disappear in 0.1 sec
                 setTimeout(function() { bubbles[i].classList.add('hide'); }, 100);
-                audio.play(); // make 404 error : check this issue
+                //audio.play(); // make 404 error : check this issue
 
                 // add the popped alphabet in the answer area
                 user_answer.innerText += answer_arr[i];
 
                 // check the answer
-                this.checkAnswer(user_answer.innerText);
+                if (user_answer.innerText == this.answer) {
+                    console.log('you got the answer!');
+                    // save the answer to solved quiz : local storage & cookie
 
+                    // move on to the next question
+                }
             });
         }
     }
-
-    checkAnswer(ans) {
-        if (ans == "answer") {
-            // save the answer to solved quiz : local storage
-
-            // move on to the next question
-        }
-    }
-
 
     shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -168,9 +165,14 @@ class Quiz {
                 timer.innerText = --sec;
                 if(sec <= 0) {
                     clearInterval(myTimer);
-                    alert('Time Over');
+                    //console.log('Time Over');
+                    this.showGameOver();
                 }
         }, 1000);
+    }
+
+    showGameOver() {
+        
     }
 }
 
