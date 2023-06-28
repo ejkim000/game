@@ -24,6 +24,62 @@ header h1 {
     margin: 1vw;
 }
 
+/* start page */
+.start-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 3vw;
+    margin: 1vw;
+}
+
+.start-block h2 {
+    font-size: 4vw;
+    text-align: center;
+}
+
+.start-block input {
+    width: 40vw;
+    height: 6vw;
+    border: none;
+    border-radius: 6px;
+    font-size: 4vw;
+    background-color: #BFD641;
+    border: 2px solid black;
+
+}
+
+.start-btn {
+    font-size: 3vw;
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+    background-color: yellowgreen;
+    padding: 1.5vw;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.start-block .rules {
+    border: 3px solid #5845c6;
+    border-radius: 10px;
+    padding: 2vw 5vw;
+}
+
+.start-block li {
+    font-size: 2.5vw;
+    line-height: 1.7;
+}
+
+.msg {
+    text-align: center;
+    font-size: 2vw;
+    color: rgb(244, 40, 40);
+}
+/* game page */
+
 .question-block {
     display: flex;
     flex-direction: row;

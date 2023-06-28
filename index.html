@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/302c6d6ffe.js" crossorigin="anonymous"></script>
     <title>Bubble Pop Quiz</title>
 </head>
 
 <body>
     <header><h1>Bubble Pop Quiz</h1></header>
-    <main>
-        <section class="enter-name">
-            <h2>Enter your name</h2>
-
-            <input type="text" id="user_name" name="user_name" required>
-            <button class="start" id="start_btn">Start</button>
-            <p style="color:red;" id="msg"></p>
-        </section>
-
+    <main class="start-block">
         <section class="rule">
-            <h3>Game Rules</h3>
-            <ul class="rule">
+            <h2>Game Rules</h2>
+            <ol class="rules">
                 <li>Answer 5 Questions in 1 Minute</li>
                 <li>To answer, have to pop the bubbles in the correct order of Alphabet</li>
                 <li>Wong answer doesn't count</li>
                 <li>Click "Skip" button when you dont know the answer</li>
-            </ul>
+            </ol>
         </section>
+
+        <section class="enter-name">
+            <h2>Enter your name</h2>
+            <input type="text" id="user_name" name="user_name" required>
+            <span class="start-btn" id="start_btn">Start &nbsp; <i class="fa-solid fa-right-long fa-beat"></i></span>
+            <p class="msg" id="msg"></p>
+        </section>
+
+
     </main>
     <footer>
         &copy; Eunjung Kim 2023
