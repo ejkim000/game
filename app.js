@@ -48,10 +48,6 @@ class User {
         location.href = './game.html';
     }
 
-    updateUser(user, idx) {
-        localStorage.setItem('user', JSON.stringify(user[idx]));
-    }
-
     // get user's info from cookie
     static getCookie(str) {
         return document.cookie.split("; ").find((row) => row.startsWith(str)).split('=')[1];
@@ -73,7 +69,9 @@ class Quiz {
         this.idx = this.getQuizIdx();
         // no more left over questions
         if (!this.idx) {
-            this.showGameOver();
+            // need to work when there is no more quiz left
+            alert('no more quiz left');
+            //this.showGameOver(); // this part made undefined user error
             return false;
         } else {
             this.quiz = QUIZZES[this.idx].q;
@@ -107,7 +105,7 @@ class Quiz {
         }
     }
 
-    // get solved quiz from cookie and return as array
+    // get solved quiz from cookie and return as number array
     getSolvedQuiz() {
         if (!User.getCookie('solved_quiz')) {
             return [];
@@ -116,7 +114,7 @@ class Quiz {
         }
     }
 
-    // get skipped quiz from cookie and return as array
+    // get skipped quiz from cookie and return as number array
     getSkippedQuiz() {
         if (!User.getCookie('skipped_quiz')) {
             return [];
@@ -180,6 +178,7 @@ class Quiz {
 
                     } else {
                         // move on to the next question
+                        console.log(this.user);
                         location.reload();
                     }
 
@@ -219,15 +218,37 @@ class Quiz {
         }, 1000);
     }
 
+    updateUserInfo(user_name) {
+        // get all users saved in local storange
+        let users = JSON.parse(localStorage.getItem('users'));
+
+        console.log(users);
+
+        users.forEach((u) => {
+            // update current user's info
+            if (u.user_name == user_name) {
+                u.clear_time = User.getCookie('clear_time');
+                u.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz').split(',') : [];
+                u.skipped_quiz = (User.getCookie('skipped_quiz')) ? User.getCookie('skipped_quiz').split(',') : [];
+                console.log(u);
+            }
+        });
+        // rank : desc
+        users.sort((a, b) => { return b.clear_time*1 - a.clear_time*1 });
+                    
+        // save updated users in the local storage
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+
     showGameOver(str) {
         // stop timer
         clearInterval(this.myTimer);
-        // update localstorage user
-        let all_users = JSON.parse(localStorage.getItem('users'));
-        console.log(all_users);
-
-        //this.rank();
-
+        console.log(this.user);
+        // update user info 
+        this.updateUserInfo(this.user.user_name);
+        // show user rank
+        this.showUserRank()
 
         if (str) document.getElementById('game_over_title').innerText = str;
         let game_over = document.getElementById('game_over');
@@ -241,49 +262,57 @@ class Quiz {
             this.user.solved_quiz = [];
             this.user.clear_time = 60;
             // update cookies
-            User.setCookie(this.user);
+        User.setCookie(this.user);
 
             location.reload();
         });
 
     }
 
-    rank() {
+    showUserRank() {
         let users = JSON.parse(localStorage.getItem('users'));
-        console.log(users);
-        // nested array DESC order
-        users.sort((a,b) => {return b.clear_time - a.clear_time});
+        let user_rank_length = (users.length > 5) ? 5 : users.length;
+        let li_element;
 
-        console.log(users);
+        // append each li element in the rank ul
+        for(let i=0; i < user_rank_length; i++) {
+            li_element = document.createElement('li');
+            li_element.innerHTML=`${i+1}. ${users[i].user_name} <span>${users[i].clear_time}</span>`;
+            document.getElementById('rank').appendChild(li_element);
+        }
     }
 }
 
 /* game page */
 if (document.getElementById('q')) {
-    let u = new User();
-    console.log(u.user);
 
-    let q = new Quiz(u.user);
-    console.log(q);
-
-    q.rank();
-
-    if (q.idx) {
-        // set timer
-        q.timer(document.getElementById('timer'), u.user.clear_time);
-
-        // show the quiz
-        document.getElementById('q').innerText = q.quiz;
-        q.createAnswerBubble(u);
-
-        // skip
-        document.getElementById('skip').addEventListener('click', e => {
-            e.preventDefault();
-            q.skip();
-        });
-
-        
+    async function createUser() {
+        return new User();
     }
+    createUser().then(
+        (u) => {
+            console.log(u.user);
+
+            let q = new Quiz(u.user);
+            console.log(q);
+
+            if (q.idx) {
+                // set timer
+                q.timer(document.getElementById('timer'), u.user.clear_time);
+
+                // show the quiz
+                document.getElementById('q').innerText = q.quiz;
+                q.createAnswerBubble(u);
+
+                // skip onlick event
+                document.getElementById('skip').addEventListener('click', e => {
+                    e.preventDefault();
+                    q.skip();
+                });
+
+            }
+        }, () => { alert('Fail to load game') });
+
 }
 
 
