@@ -44,6 +44,10 @@
     https://codepen.io/osublake/pen/WjWPob
     https://codepen.io/maysi/pen/mPKmVB
 
+    - Random movement
+    http://jsfiddle.net/bf9nv1q6/
+
+
     - suffle array
     https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 

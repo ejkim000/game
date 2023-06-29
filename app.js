@@ -5,7 +5,7 @@ class User {
             'solved_quiz': [],
             'skipped_quiz': [],
             'clear_time': 60,
-            'rank': 0
+            'clear_game': 0
         };
 
         // new user
@@ -16,7 +16,7 @@ class User {
             this.user.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz').split(',') : [];
             this.user.skipped_quiz = (User.getCookie('skipped_quiz')) ? User.getCookie('skipped_quiz').split(',') : [];
             this.user.clear_time = User.getCookie('clear_time');
-            this.user.rank = User.getCookie('rank');
+            this.user.clear_game = User.getCookie('clear_game');
         }
 
         this.users = (localStorage.getItem('users')) ? JSON.parse(localStorage.getItem('users')) : [];
@@ -58,8 +58,8 @@ class User {
         document.cookie = `user_name=${user.user_name}`;
         document.cookie = `solved_quiz=${user.solved_quiz.join(',')}`;
         document.cookie = `skipped_quiz=${user.skipped_quiz.join(',')}`;
-        document.cookie = `clear_time=${user.clear_time}`;
-        document.cookie = `rank=${user.rank}`;
+        document.cookie = `clear_time=${user.clear_time*1}`;
+        document.cookie = `clear_game=${user.clear_game*1}`;
 
     }
 }
@@ -168,14 +168,15 @@ class Quiz {
                     // save the answer to solved quiz : cookie
                     this.user.solved_quiz.push(this.idx);
                     this.user.clear_time = document.getElementById('timer').innerText;
+                    
 
                     // update cookies
                     User.setCookie(this.user);
 
                     if (this.user.solved_quiz.length >= 5) {
-                        //success
+                        // clear game
+                        this.user.clear_game = 1;
                         this.showGameOver('You Won!');
-
                     } else {
                         // move on to the next question
                         console.log(this.user);
@@ -227,19 +228,19 @@ class Quiz {
         users.forEach((u) => {
             // update current user's info
             if (u.user_name == user_name) {
-                u.clear_time = User.getCookie('clear_time');
+                u.clear_time = User.getCookie('clear_time')*1;
+                u.clear_game = User.getCookie('clear_game')*1;
                 u.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz').split(',') : [];
                 u.skipped_quiz = (User.getCookie('skipped_quiz')) ? User.getCookie('skipped_quiz').split(',') : [];
                 console.log(u);
             }
         });
         // rank : desc
-        users.sort((a, b) => { return b.clear_time*1 - a.clear_time*1 });
-                    
+        users.sort((a, b) => { return b.clear_time * 1 - a.clear_time * 1 });
+
         // save updated users in the local storage
         localStorage.setItem('users', JSON.stringify(users));
     }
-
 
     showGameOver(str) {
         // stop timer
@@ -251,6 +252,7 @@ class Quiz {
         this.showUserRank()
 
         if (str) document.getElementById('game_over_title').innerText = str;
+        document.getElementById('skip').style.visibility='none';
         let game_over = document.getElementById('game_over');
         let start_over = document.getElementById('start_over');
         game_over.classList.remove('hide');
@@ -262,7 +264,7 @@ class Quiz {
             this.user.solved_quiz = [];
             this.user.clear_time = 60;
             // update cookies
-        User.setCookie(this.user);
+            User.setCookie(this.user);
 
             location.reload();
         });
@@ -274,11 +276,13 @@ class Quiz {
         let user_rank_length = (users.length > 5) ? 5 : users.length;
         let li_element;
 
-        // append each li element in the rank ul
-        for(let i=0; i < user_rank_length; i++) {
-            li_element = document.createElement('li');
-            li_element.innerHTML=`${i+1}. ${users[i].user_name} <span>${users[i].clear_time}</span>`;
-            document.getElementById('rank').appendChild(li_element);
+        // append each li element in the rank ul : for the clear game user
+        for (let i = 0; i < user_rank_length; i++) {
+            if (users[i].clear_game) {
+                li_element = document.createElement('li');
+                li_element.innerHTML = `${i + 1}. ${users[i].user_name} <span>${users[i].clear_time}</span>`;
+                document.getElementById('rank').appendChild(li_element);
+            }
         }
     }
 }

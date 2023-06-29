@@ -183,7 +183,8 @@ header h1 {
     margin: 0.2vw;
     cursor: pointer;
     position: relative;
-    animation: mymove 10s infinite;
+    animation: mymove 6s infinite;
+    animation-direction: alternate, reverse, normal;
 }
 
 .pop {
@@ -195,7 +196,7 @@ header h1 {
 }
 
 .b1 {
-    animation-timing-function: linear;
+    animation-timing-function: cubic-bezier(0.2, 0.5, 1, 0.2);
     background: radial-gradient(rgba(255, 255, 255, 0.1), #eaea5c);
 }
 
@@ -225,17 +226,17 @@ header h1 {
 }
 
 .b7 {
-    animation-timing-function: ease-in;
+    animation-timing-function: cubic-bezier(0.3, 0.4, 0.5, 0.2);
     background: radial-gradient(rgba(255, 255, 255, 0.1), #535353);
 }
 
 .b8 {
-    animation-timing-function: ease-in-out;
+    animation-timing-function: cubic-bezier(0.1, 0.3, 0.1, 0.1);
     background: radial-gradient(rgba(255, 255, 255, 0.1), #517de4);
 }
 
 .b9 {
-    animation-timing-function: ease-out;
+    animation-timing-function:  cubic-bezier(0.4, 0.8, 0.5, 0.1);
     background: radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
 
 }
