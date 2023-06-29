@@ -25,8 +25,8 @@
 
 ## Resources
 1. CSS
-    - Random position
-    https://jsfiddle.net/tiffhockin/fesvq8u0/
+    - Random movement
+    https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
     - animation
     https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_speed
     - gradient

@@ -69,6 +69,7 @@ class Quiz {
         this.idx = this.getQuizIdx();
         // no more left over questions
         if (!this.idx) {
+            
             // need to work when there is no more quiz left
             alert('no more quiz left');
             //this.showGameOver(); // this part made undefined user error
@@ -249,10 +250,13 @@ class Quiz {
         // update user info 
         this.updateUserInfo(this.user.user_name);
         // show user rank
-        this.showUserRank()
-
+        this.showUserRank();
+        // make skip button non-clickable
+        document.getElementById('skip').classList.add('no-click');
+        
         if (str) document.getElementById('game_over_title').innerText = str;
-        document.getElementById('skip').style.visibility='none';
+        
+
         let game_over = document.getElementById('game_over');
         let start_over = document.getElementById('start_over');
         game_over.classList.remove('hide');
