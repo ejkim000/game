@@ -2,25 +2,37 @@
 
 ## Game Rules
 1. Answer 5 Questions in 1 Minute
-2. To answer, have to pop the bubbles in the correct order of Alphabet
+2. To answer, have to pop the bubbles in the correct order of alphabet
 3. Wong answer doesn't count
-4. Click "Skip" button when you dont know the answer
+4. Click "Skip" button for the next question
 
 ## Classes
-1. Users
+1. User
+    - Save user information in Cookie and localStorage
+    - Check user name to prevent duplicated user
 
-2. Questions
+2. Quiz
+    - Questions are saved in data.js file 
+    - Create total 10 alphabet bubbles inclue random alphabet bubble each question
+    - When click a bubble, the bubble pops and come down to the answer area
+    - If the answer matches, move on to the next question
+    - rank only for the users who cleared the game
+    - Game Over : didn't solve 5 questions in 1 minute
+    - You Won! : did solve 5 questions in 1 minute
 
-## Local Storage
-1. Users
-    - name: string, key value
-    - questions: array, [question id, correct(boolean)]
-    - clear_time: numbers, secondsof clear the game
-    - rank: number
-2. Questions
-    - question id: number
-    - question : string
-    - answer : string
+## Store Data
+1. localStorage (Users)
+    - user_name: string
+    - solved_quiz: array
+    - skipped_quiz: array
+    - clear_time: number, second of clear the game
+    - clear_game: number, 0: didn't clear game / 1: cleared game
+2. Cookie - for each user
+    - user_name: string
+    - solved_quiz: array
+    - skipped_quiz: array
+    - clear_time: number, second of clear the game
+    - clear_game: number, 0: didn't clear game / 1: cleared game
 
 
 ## Resources
@@ -34,25 +46,18 @@
     - animation examples
     https://blog.hubspot.com/website/css-animation-examples
     https://animate.style/
-    - bubble
+    - bubble style
     https://codepen.io/Mark_Bowley/pen/PozwyP
     
 
 2. js
-    - Random positioning
-    https://jsfiddle.net/tiffhockin/fesvq8u0/
-    https://codepen.io/osublake/pen/WjWPob
-    https://codepen.io/maysi/pen/mPKmVB
-
-    - Random movement
-    http://jsfiddle.net/bf9nv1q6/
-
-
+    - cookie
+    https://www.w3schools.com/js/js_cookies.asp
     - suffle array
     https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
     - double sort
     https://levelup.gitconnected.com/sort-array-of-objects-by-two-properties-in-javascript-69234fa6f474
 
-3. sound
-    - https://mixkit.co/free-sound-effects/pop/
+    - sound
+    https://mixkit.co/free-sound-effects/pop/
