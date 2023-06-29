@@ -210,6 +210,8 @@ header h1 {
 }
 
 .b3 {
+    animation: mymove 8s infinite;
+    animation-direction: alternate, reverse, normal;
     animation-timing-function: ease-in;
     background: radial-gradient(rgba(255, 255, 255, 0.1), lightgreen);
 }
@@ -220,6 +222,8 @@ header h1 {
 }
 
 .b5 {
+    animation: mymove 4s infinite;
+    animation-direction: alternate, reverse, normal;
     animation-timing-function: ease-in-out;
     background: radial-gradient(rgba(255, 255, 255, 0.1), #5845c6);
 }
@@ -230,11 +234,15 @@ header h1 {
 }
 
 .b7 {
-    animation-timing-function: cubic-bezier(0.3, 0.4, 0.5, 0.2);
+    animation: mymove 8s infinite;
+    animation-direction: alternate, reverse, normal;
+    animation-timing-function: cubic-bezier(0.5, 0.1, 0.9, 0.2);
     background: radial-gradient(rgba(255, 255, 255, 0.1), #535353);
 }
 
 .b8 {
+    animation: mymove 4s infinite;
+    animation-direction: alternate, reverse, normal;
     animation-timing-function: cubic-bezier(0.1, 0.3, 0.1, 0.1);
     background: radial-gradient(rgba(255, 255, 255, 0.1), #517de4);
 }
