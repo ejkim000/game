@@ -12,11 +12,11 @@ const QUIZZES = [
         "a": "NESTED"
     },
     {
-        "q": "We call '() => expression' as _______ function expression in Javascript",
+        "q": `We call "() => expression" as _______ function expression in Javascript`,
         "a": "ARROW"
     },
     {
-        "q": "______ document strats with '<!DOCTYPE html>'",
+        "q": `______ document starts with "<!DOCTYPE html>"`,
         "a": "HTML"
     },
     {
@@ -32,11 +32,11 @@ const QUIZZES = [
         "a": "STYLE"
     },
     {
-        "q": "<______ rel='stylesheet' href='style.css'>",
+        "q": `<______ rel="stylesheet" href="style.css">`,
         "a": "LINK"
     },
     {
-        "q": "<link ____='stylesheet' href='style.css'>",
+        "q": `<link ____="stylesheet" href="style.css">`,
         "a": "REL"
     },
     {

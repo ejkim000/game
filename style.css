@@ -125,8 +125,8 @@ header h1 {
     margin: 1vw;
     padding: 2vw;
     border-radius: 10px;
-    color: #5845c6;
-    background-color: yellowgreen;
+    color: white;
+    border: white  2px solid;
 }
 
 .answer {
@@ -256,7 +256,7 @@ header h1 {
     width: 70vw;
     margin: 0 auto;
     position: relative;
-    background-color: rgba(26, 26, 26, 0.4);
+    background-color: rgba(26, 26, 26, 0.6);
     box-shadow: 5px 5px 15px rgba(26, 26, 26, 0.5);
     border-radius: 10px;
 }

@@ -67,12 +67,11 @@ class User {
 class Quiz {
     constructor(user) {
         this.idx = this.getQuizIdx();
+
+        /* when this.idx==0 (!this.idx) condition passes make sure not use this */
         // no more left over questions
-        if (!this.idx) {
-            
-            // need to work when there is no more quiz left
+        if (this.idx === null) {
             alert('no more quiz left');
-            //this.showGameOver(); // this part made undefined user error
             return false;
         } else {
             this.quiz = QUIZZES[this.idx].q;
@@ -85,13 +84,14 @@ class Quiz {
 
     // get random quiz index
     getQuizIdx() {
-        // check it's solved quiz or not
         let total_quiz = QUIZZES.length;
         let solved_quiz_idxs = this.getSolvedQuiz();
         let skipped_quiz_idxs = this.getSkippedQuiz();
         let rnd_quiz_idx;
         let i = 0;
 
+
+        // return quiz only when it's not solve or skipped quiz
         while (i < total_quiz) {
             rnd_quiz_idx = Math.floor(Math.random() * total_quiz);
 
@@ -100,7 +100,6 @@ class Quiz {
             }
             i++;
         }
-
         if (i == total_quiz) {
             return null;
         }
@@ -129,7 +128,8 @@ class Quiz {
         const bubble_body = document.getElementById('bubble_body');
         const user_answer = document.getElementById('a');
         const bubbles = [];
-        const audio = new Audio('./sound/bubble-pop.wav');
+        const audio = new Audio(window.location.origin + '/sound/bubble-pop.wav');
+        console.log(window.location.origin + '/sound/bubble-pop.wav')
         let answer_arr = this.answer.split('');
         let answer_length = answer_arr.length;
 
@@ -158,7 +158,7 @@ class Quiz {
                 bubbles[i].classList.add('pop');
                 // after pop, let ithe bubble disappear in 0.1 sec
                 setTimeout(function () { bubbles[i].classList.add('hide'); }, 100);
-                //audio.play(); // make 404 error : check this issue
+                audio.play(); // make 404 error : check this issue
 
                 // add the popped alphabet in the answer area
                 user_answer.innerText += answer_arr[i];
@@ -180,7 +180,6 @@ class Quiz {
                         this.showGameOver('You Won!');
                     } else {
                         // move on to the next question
-                        console.log(this.user);
                         location.reload();
                     }
 
@@ -224,8 +223,6 @@ class Quiz {
         // get all users saved in local storange
         let users = JSON.parse(localStorage.getItem('users'));
 
-        console.log(users);
-
         users.forEach((u) => {
             // update current user's info
             if (u.user_name == user_name) {
@@ -233,7 +230,6 @@ class Quiz {
                 u.clear_game = User.getCookie('clear_game')*1;
                 u.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz').split(',') : [];
                 u.skipped_quiz = (User.getCookie('skipped_quiz')) ? User.getCookie('skipped_quiz').split(',') : [];
-                console.log(u);
             }
         });
         // rank : desc
@@ -246,17 +242,18 @@ class Quiz {
     showGameOver(str) {
         // stop timer
         clearInterval(this.myTimer);
-        console.log(this.user);
+
         // update user info 
         this.updateUserInfo(this.user.user_name);
+
         // show user rank
         this.showUserRank();
+
         // make skip button non-clickable
         document.getElementById('skip').classList.add('no-click');
         
         if (str) document.getElementById('game_over_title').innerText = str;
         
-
         let game_over = document.getElementById('game_over');
         let start_over = document.getElementById('start_over');
         game_over.classList.remove('hide');
@@ -264,15 +261,17 @@ class Quiz {
 
         start_over.addEventListener('click', e => {
             e.preventDefault();
+
             // reset solved_quiz and clear_time before start over
             this.user.solved_quiz = [];
             this.user.clear_time = 60;
+
             // update cookies
             User.setCookie(this.user);
 
+            // start over 
             location.reload();
         });
-
     }
 
     showUserRank() {
@@ -291,38 +290,7 @@ class Quiz {
     }
 }
 
-/* game page */
-if (document.getElementById('q')) {
-
-    async function createUser() {
-        return new User();
-    }
-    createUser().then(
-        (u) => {
-            console.log(u.user);
-
-            let q = new Quiz(u.user);
-            console.log(q);
-
-            if (q.idx) {
-                // set timer
-                q.timer(document.getElementById('timer'), u.user.clear_time);
-
-                // show the quiz
-                document.getElementById('q').innerText = q.quiz;
-                q.createAnswerBubble(u);
-
-                // skip onlick event
-                document.getElementById('skip').addEventListener('click', e => {
-                    e.preventDefault();
-                    q.skip();
-                });
-
-            }
-        }, () => { alert('Fail to load game') });
-
-}
-
+/* ***************************************************************** */
 
 /* index page */
 if (document.getElementById("start_btn")) {
@@ -346,4 +314,35 @@ if (document.getElementById("start_btn")) {
         let user = new User(user_name);
         user.checkUser();
     });
+}
+
+
+/* game page */
+if (document.getElementById('q')) {
+
+    async function createUser() {
+        return new User();
+    }
+    createUser().then(
+        (u) => {
+            let q = new Quiz(u.user);
+
+            // when there is a quiz index
+            if (q.idx !== null) {
+                // set timer
+                q.timer(document.getElementById('timer'), u.user.clear_time);
+
+                // show the quiz
+                document.getElementById('q').innerText = q.quiz;
+                q.createAnswerBubble(u);
+
+                // skip onlick event
+                document.getElementById('skip').addEventListener('click', e => {
+                    e.preventDefault();
+                    q.skip();
+                });
+
+            }
+        }, () => { alert('Fail to load game') });
+
 }
