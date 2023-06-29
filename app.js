@@ -128,8 +128,7 @@ class Quiz {
         const bubble_body = document.getElementById('bubble_body');
         const user_answer = document.getElementById('a');
         const bubbles = [];
-        const audio = new Audio(window.location.origin + '/sound/bubble-pop.wav');
-        console.log(window.location.origin + '/sound/bubble-pop.wav')
+        const pop_audio = new Audio(window.location.origin + '/sound/bubble-pop.wav');
         let answer_arr = this.answer.split('');
         let answer_length = answer_arr.length;
 
@@ -154,35 +153,38 @@ class Quiz {
             // pop bubble on click event
             bubbles[i].addEventListener('click', e => {
                 e.preventDefault();
+
+                // play pop sound
+                pop_audio.play(); 
+
                 // pop the bubble : have to add the pop pciture
                 bubbles[i].classList.add('pop');
+
                 // after pop, let ithe bubble disappear in 0.1 sec
                 setTimeout(function () { bubbles[i].classList.add('hide'); }, 100);
-                audio.play(); // make 404 error : check this issue
 
                 // add the popped alphabet in the answer area
                 user_answer.innerText += answer_arr[i];
-
 
                 // check the answer
                 if (user_answer.innerText == this.answer) {
                     // save the answer to solved quiz : cookie
                     this.user.solved_quiz.push(this.idx);
                     this.user.clear_time = document.getElementById('timer').innerText;
-                    
-
-                    // update cookies
-                    User.setCookie(this.user);
 
                     if (this.user.solved_quiz.length >= 5) {
                         // clear game
                         this.user.clear_game = 1;
+                        // update cookie
+                        User.setCookie(this.user);
+                        //show game over
                         this.showGameOver('You Won!');
                     } else {
+                        // update cookie
+                        User.setCookie(this.user);
                         // move on to the next question
                         location.reload();
                     }
-
                 }
             });
         }
@@ -232,8 +234,15 @@ class Quiz {
                 u.skipped_quiz = (User.getCookie('skipped_quiz')) ? User.getCookie('skipped_quiz').split(',') : [];
             }
         });
-        // rank : desc
-        users.sort((a, b) => { return b.clear_time * 1 - a.clear_time * 1 });
+
+        // rank : desc clear_game, desc clear_time
+        users.sort((a, b) => { 
+            if (a.clear_game === b.clear_game){
+                return b.clear_time * 1 - a.clear_time * 1 // desc
+              } else {
+                return b.clear_game * 1 - a.clear_game * 1 // desc
+              }
+        });
 
         // save updated users in the local storage
         localStorage.setItem('users', JSON.stringify(users));
@@ -274,6 +283,7 @@ class Quiz {
         });
     }
 
+    // show user rank who cleared the game upto rank 5
     showUserRank() {
         let users = JSON.parse(localStorage.getItem('users'));
         let user_rank_length = (users.length > 5) ? 5 : users.length;
@@ -281,7 +291,7 @@ class Quiz {
 
         // append each li element in the rank ul : for the clear game user
         for (let i = 0; i < user_rank_length; i++) {
-            if (users[i].clear_game) {
+            if (users[i].clear_game == 1) {
                 li_element = document.createElement('li');
                 li_element.innerHTML = `${i + 1}. ${users[i].user_name} <span>${users[i].clear_time}</span>`;
                 document.getElementById('rank').appendChild(li_element);

@@ -51,5 +51,8 @@
     - suffle array
     https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
+    - double sort
+    https://levelup.gitconnected.com/sort-array-of-objects-by-two-properties-in-javascript-69234fa6f474
+
 3. sound
     - https://mixkit.co/free-sound-effects/pop/
