@@ -1,4 +1,4 @@
-const quizzes = [
+const QUIZZES = [
     {
         "q": "Answer is ABCDEF",
         "a": "ABCDEF"
@@ -17,11 +17,11 @@ const quizzes = [
     },
     {
         "q": "Answer is CODING",
-        "a": "CODDING"
+        "a": "CODING"
     },
     {
-        "q": "Answer is HELLOW",
-        "a": "HELLOE"
+        "q": "Answer is HELLO",
+        "a": "HELLO"
     },
     {
         "q": "Answer is PERSCHOLAS",
@@ -32,8 +32,8 @@ const quizzes = [
         "a": "BUBBLE"
     },
     {
-        "q": "Answer is FGHI",
-        "a": "FGHI"
+        "q": "Answer is LET",
+        "a": "LET"
     },
     {
         "q": "Answer is FGHIJ",
@@ -42,4 +42,4 @@ const quizzes = [
 ];
 
 
-const alphabets = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+const ALPHABET = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];

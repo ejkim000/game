@@ -11,6 +11,10 @@ body {
     flex-direction: column;
 }
 
+body.game {
+    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+}
+
 header h1 {
     font-family: 'Luckiest Guy', cursive;
     font-size: 10vw;
@@ -45,7 +49,8 @@ header h1 {
     height: 6vw;
     border: none;
     border-radius: 6px;
-    font-size: 4vw;
+    font-size: 3vw;
+    padding: 1vw;
     background-color: #BFD641;
     border: 2px solid black;
 
@@ -78,6 +83,7 @@ header h1 {
     font-size: 2vw;
     color: rgb(244, 40, 40);
 }
+
 /* game page */
 
 .question-block {
@@ -135,6 +141,7 @@ header h1 {
     background-color: #5845c6;
     padding: 0.5rem;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .bubble-body {
@@ -146,7 +153,6 @@ header h1 {
     width: 95vw;
     margin: 0 auto;
     position: relative;
-    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
     border-radius: 10px;
 }
 
@@ -175,7 +181,7 @@ header h1 {
     margin: 0.2vw;
     cursor: pointer;
     position: relative;
-    animation: mymove 8s infinite;
+    animation: mymove 10s infinite;
 }
 
 .pop {
@@ -239,7 +245,7 @@ header h1 {
 }
 
 .game-over {
-    height: 60vw;
+    height: 55vw;
     width: 70vw;
     margin: 0 auto;
     position: relative;
@@ -249,7 +255,7 @@ header h1 {
 }
 
 .game-over.show {
-    top: -60vh;
+    top: -70vh;
 }
 
 .game-over.hide {
@@ -261,14 +267,13 @@ header h1 {
     font-family: 'Luckiest Guy', cursive;
     font-size: 8vw;
     -webkit-text-fill-color: black;
-    /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: yellowgreen;
     letter-spacing: 0.5vw;
     width: 100%;
     text-align: center;
     margin: 2vw;
-    padding: 2vw;
+    padding-top: 2vw;
 }
 
 .game-over li {
@@ -278,7 +283,6 @@ header h1 {
     color: yellowgreen;
     font-weight: 700;
     width: 90%;
-
 }
 
 .game-over li span {
@@ -294,7 +298,7 @@ header h1 {
     text-align: center;
     border-radius: 10px;
     background-color: yellowgreen;
-    color: #5845c6;
+    color: black#5845c6;
     padding: 0.5rem;
     margin: 3vh auto;
     cursor: pointer;

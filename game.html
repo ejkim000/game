@@ -10,20 +10,23 @@
     <title>Bubble Pop Quiz</title>
 </head>
 
-<body>
-    <header><h1>Bubble Pop Quiz</h1></header>
+<body class="game">
+    <header><h1>BUBBLE POP QUIZ</h1></header>
     <main>
         <section class="question-block">
-            <div class="question">Question: <span id="q"></span></div>
+            <div class="question">Q: <span id="q"></span></div>
             <div class="timer" id="timer">60</div>
         </section>
+
         <section class="bubble-body" id="bubble_body"></section>
         <section class="answer-block">
-            <div class="answer">Answer: <span id="a"></span></div>
-            <div class="skip">Skip &nbsp; <i class="fa-solid fa-right-long fa-beat"></i></div>
+            <div class="answer">A: <span id="a"></span></div>
+            <div class="solved" id="solved"></div>
+            <div class="skip" id="skip">Skip &nbsp; <i class="fa-solid fa-right-long fa-beat"></i></div>
         </section>
-        <section class="game-over hide">
-            <h1>Game Over</h1>
+
+        <section id="game_over" class="game-over hide">
+            <h1 id="game_over_title">Game Over</h1>
             <ul class="rank">
                 <li>1. ABDC<span>53</span></li>
                 <li>2. Kim<span>53</span></li>
@@ -31,7 +34,7 @@
                 <li>4. ddddd<span>53</span></li>
                 <li>5. sammy<span>53</span></li>
             </ul>
-            <div class="start-over">Start Over</div>
+            <div id="start_over" class="start-over">Start Over</div>
         </section>
     </main>
     <footer>
