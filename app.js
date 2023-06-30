@@ -177,8 +177,8 @@ class Quiz {
                         this.user.clear_game = 1;
                         // update cookie
                         User.setCookie(this.user);
-                        //show game over
-                        this.showGameOver('You Won!');
+                        //show you won
+                        this.showGameOver('YOU WON!');
                     } else {
                         // update cookie
                         User.setCookie(this.user);
@@ -228,8 +228,8 @@ class Quiz {
         let users = JSON.parse(localStorage.getItem('users'));
 
         users.forEach((u) => {
-            // update current user's info
-            if (u.user_name == user_name) {
+            // update current user's info when cleared the game
+            if (u.user_name == user_name && u.clear_game == 1) {
                 u.clear_time = User.getCookie('clear_time') * 1;
                 u.clear_game = User.getCookie('clear_game') * 1;
                 u.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz').split(',') : [];
