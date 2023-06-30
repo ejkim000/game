@@ -77,7 +77,7 @@ class Quiz {
             this.quiz = QUIZZES[this.idx].q;
             this.answer = QUIZZES[this.idx].a;
             this.user = user;
-            this.sec = (user.clear_time) ? user.clear_time : 60;
+            this.sec = user.clear_time;
             this.skipped_quiz = this.getSkippedQuiz();
         }
     }
@@ -195,8 +195,10 @@ class Quiz {
         this.skipped_quiz.push(this.idx);
         this.user.skipped_quiz = this.skipped_quiz;
         this.user.clear_time = document.getElementById('timer').innerText;
+
         // save user's cookie
         User.setCookie(this.user);
+        
         location.reload();
     }
 
@@ -268,11 +270,13 @@ class Quiz {
         game_over.classList.remove('hide');
         game_over.classList.add('show');
 
+        // start over click event
         start_over.addEventListener('click', e => {
             e.preventDefault();
 
-            // reset solved_quiz and clear_time before start over
+            // reset solved_quiz, skipped_quiz and clear_time before start over
             this.user.solved_quiz = [];
+            this.user.skipped_quiz = [];
             this.user.clear_time = 60;
 
             // update cookies
