@@ -2,13 +2,16 @@
 
 * {
     box-sizing: border-box;
+    /* font-family: 'Bruno Ace', cursive; */
+    font-family: 'Albert Sans', sans-serif;
 }
 
 body {
-    /* font-family: 'Bruno Ace', cursive; */
-    font-family: 'Albert Sans', sans-serif;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
 }
 
 body.game {
@@ -95,7 +98,7 @@ header h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 3.5vw;
+    font-size: 3.2vw;
     margin: 1vw;
     padding: 2vw;
     border-radius: 10px;
@@ -129,6 +132,7 @@ header h1 {
     border-radius: 10px;
     color: white;
     border: white  2px solid;
+    background-color: rgba(26, 26, 26, 0.3);
 }
 
 .answer {
@@ -232,6 +236,8 @@ header h1 {
 }
 
 .b6 {
+    animation: mymove 7s infinite;
+    animation-direction: alternate, reverse, normal;
     animation-timing-function: linear;
     background: radial-gradient(rgba(255, 255, 255, 0.1), #EADEDB);
 }
@@ -251,6 +257,8 @@ header h1 {
 }
 
 .b9 {
+    animation: mymove 5s infinite;
+    animation-direction: alternate, reverse, normal;
     animation-timing-function:  cubic-bezier(0.4, 0.8, 0.5, 0.1);
     background: radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
 
@@ -273,7 +281,7 @@ header h1 {
 }
 
 .game-over.show {
-    top: -70vh;
+    top: -80vh;
 }
 
 .game-over.hide {
