@@ -22,9 +22,13 @@ body.game {
     overflow-y: hidden;
 }
 
+.container {
+    max-width: 1024px;
+}
+
 header h1 {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 10vw;
+    font-size: min(10vw, 7rem);
     -webkit-text-fill-color: yellowgreen;
     /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
@@ -32,7 +36,7 @@ header h1 {
     letter-spacing: 0.5vw;
     width: 100%;
     text-align: center;
-    margin: 3vw 1vw 1vw 1vw;
+    margin: 25px 10px 10px 10px;
 }
 
 /* start page */
@@ -86,6 +90,7 @@ header h1 {
 }
 
 .msg {
+    font-size: 1.5rem;
     text-align: center;
     font-size: 2vw;
     color: rgb(244, 40, 40);
@@ -98,12 +103,13 @@ header h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 3.2vw;
-    margin: 1vw;
-    padding: 2vw;
+    font-size: min(3vw, 2rem);
+    margin: 10px;
+    padding: 20px;
     border-radius: 10px;
     background-color: #5845c6;
     color: white;
+    height: min(100px, 12vw);
 }
 
 .question {
@@ -126,13 +132,14 @@ header h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 4vw;
-    margin: 1vw;
-    padding: 2vw;
+    font-size: min(4vw, 2.5rem);
+    margin: 10px;
+    padding: 20px;
     border-radius: 10px;
     color: white;
-    border: white  2px solid;
+    border: white 2px solid;
     background-color: rgba(26, 26, 26, 0.3);
+    height: min(120px, 14vw);
 }
 
 .answer {
@@ -166,6 +173,8 @@ header h1 {
     margin: 0 auto;
     position: relative;
     border-radius: 10px;
+    align-items: center;
+    max-width: 1024px;
 }
 
 @keyframes mymove {
@@ -180,17 +189,19 @@ header h1 {
 
 .bubble {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 6vw;
+    /* font-size: 6vw;
+    font-size: calc(16px + 1vw); */
+    text-align:center;
+    font-size: min(6vw, 4rem);
     -webkit-text-fill-color: rgb(255, 255, 255);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     border-radius: 50%;
-    width: 9vw;
-    height: 9vw;
     /* to make same width & height */
-    text-align: center;
-    padding: 1vw;
-    margin: 0.2vw;
+    width: min(9vw, 98px);
+    height: min(9vw, 98px);
+    padding-top: min(1vw, 7px);
+    margin: 0;
     cursor: pointer;
     position: relative;
     animation: mymove 6s infinite;
@@ -259,7 +270,7 @@ header h1 {
 .b9 {
     animation: mymove 5s infinite;
     animation-direction: alternate, reverse, normal;
-    animation-timing-function:  cubic-bezier(0.4, 0.8, 0.5, 0.1);
+    animation-timing-function: cubic-bezier(0.4, 0.8, 0.5, 0.1);
     background: radial-gradient(rgba(255, 255, 255, 0.1), hotpink);
 
 }
@@ -271,8 +282,8 @@ header h1 {
 }
 
 .game-over {
-    height: 55vw;
-    width: 70vw;
+    height: min(50vw, 600px);
+    width: min(65vw, 700px);
     margin: 0 auto;
     position: relative;
     background-color: rgba(26, 26, 26, 0.6);
@@ -291,7 +302,7 @@ header h1 {
 
 .game-over h1 {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 8vw;
+    font-size: min(8vw, 5rem);
     -webkit-text-fill-color: black;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: yellowgreen;
@@ -303,7 +314,7 @@ header h1 {
 }
 
 .game-over li {
-    font-size: 3.5vw;
+    font-size: min(3vw, 2.5rem);
     list-style: none;
     line-height: 1.5;
     color: yellowgreen;
@@ -317,10 +328,10 @@ header h1 {
 
 .game-over .start-over {
     font-family: 'Luckiest Guy', cursive;
-    font-size: 5vw;
+    font-size: min(4vw, 3.5rem);
     font-weight: 400;
     letter-spacing: 0.5vw;
-    width: 40vw;
+    width: min(35vw, 400px);
     text-align: center;
     border-radius: 10px;
     background-color: yellowgreen;

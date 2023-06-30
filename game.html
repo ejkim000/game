@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,29 +13,33 @@
 </head>
 
 <body class="game">
-    <header><h1>BUBBLE POP QUIZ</h1></header>
-    <main>
-        <section class="question-block">
-            <div class="question">Q: <span id="q"></span></div>
-            <div class="timer" id="timer">&nbsp;</div>
-        </section>
+    <div class="container">
+        <header>
+            <h1>BUBBLE POP QUIZ</h1>
+        </header>
+        <main>
+            <section class="question-block">
+                <div class="question">Q: <span id="q"></span></div>
+                <div class="timer" id="timer">&nbsp;</div>
+            </section>
 
-        <section class="bubble-body" id="bubble_body"></section>
-        <section class="answer-block">
-            <div class="answer">A: <span id="a"></span></div>
-            <div class="solved" id="solved"></div>
-            <div class="skip" id="skip">Skip &nbsp; <i class="fa-solid fa-right-long fa-beat"></i></div>
-        </section>
+            <section class="bubble-body" id="bubble_body"></section>
+            <section class="answer-block">
+                <div class="answer">A: <span id="a"></span></div>
+                <div class="solved" id="solved"></div>
+                <div class="skip" id="skip">Skip &nbsp; <i class="fa-solid fa-right-long fa-beat"></i></div>
+            </section>
 
-        <section id="game_over" class="game-over hide">
-            <h1 id="game_over_title">GAME OVER</h1>
-            <ul class="rank" id="rank"></ul>
-            <div id="start_over" class="start-over">START OVER</div>
-        </section>
-    </main>
-    <footer>
-        &copy;EJ 2023
-    </footer>
+            <section id="game_over" class="game-over hide">
+                <h1 id="game_over_title">GAME OVER</h1>
+                <ul class="rank" id="rank"></ul>
+                <div id="start_over" class="start-over">START OVER</div>
+            </section>
+        </main>
+        <footer>
+            &copy;EJ 2023
+        </footer>
+    </div>
 </body>
 
 </html>
