@@ -1,4 +1,9 @@
 # Bubble Pop Quiz
+- EJ Kim
+
+## Description
+- Simple quiz game with fun of popping bubbles 
+- Using HTML, CSS & JavaScript
 
 ## Game Rules
 1. Answer 5 Questions in 1 Minute
@@ -8,8 +13,8 @@
 
 ## Classes
 1. User
-    - Save user information in Cookie and localStorage
-    - Check user name to prevent duplicated user
+    - Save user's information in Cookie and localStorage
+    - Check user name to prevent duplicated user name
 
 2. Quiz
     - Questions are saved in data.js file 
@@ -21,13 +26,14 @@
     - You Won! : did solve 5 questions in 1 minute
 
 ## Store Data
-1. localStorage (Users)
+1. localStorage (All Users)
     - user_name: string
     - solved_quiz: array
     - skipped_quiz: array
     - clear_time: number, second of clear the game
     - clear_game: number, 0: didn't clear game / 1: cleared game
-2. Cookie - for each user
+
+2. Cookie (Each User)
     - user_name: string
     - solved_quiz: array
     - skipped_quiz: array
@@ -57,5 +63,7 @@
     https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
     - double sort
     https://levelup.gitconnected.com/sort-array-of-objects-by-two-properties-in-javascript-69234fa6f474
+
+3. Sound effect
     - sound
-    https://mixkit.co/free-sound-effects/pop/
+    https://mixkit.co/free-sound-effects/

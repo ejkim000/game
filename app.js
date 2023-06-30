@@ -58,8 +58,8 @@ class User {
         document.cookie = `user_name=${user.user_name}`;
         document.cookie = `solved_quiz=${user.solved_quiz.join(',')}`;
         document.cookie = `skipped_quiz=${user.skipped_quiz.join(',')}`;
-        document.cookie = `clear_time=${user.clear_time*1}`;
-        document.cookie = `clear_game=${user.clear_game*1}`;
+        document.cookie = `clear_time=${user.clear_time * 1}`;
+        document.cookie = `clear_game=${user.clear_game * 1}`;
 
     }
 }
@@ -155,7 +155,7 @@ class Quiz {
                 e.preventDefault();
 
                 // play pop sound
-                pop_audio.play(); 
+                pop_audio.play();
 
                 // pop the bubble : have to add the pop pciture
                 bubbles[i].classList.add('pop');
@@ -198,7 +198,7 @@ class Quiz {
 
         // save user's cookie
         User.setCookie(this.user);
-        
+
         location.reload();
     }
 
@@ -230,20 +230,20 @@ class Quiz {
         users.forEach((u) => {
             // update current user's info
             if (u.user_name == user_name) {
-                u.clear_time = User.getCookie('clear_time')*1;
-                u.clear_game = User.getCookie('clear_game')*1;
+                u.clear_time = User.getCookie('clear_time') * 1;
+                u.clear_game = User.getCookie('clear_game') * 1;
                 u.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz').split(',') : [];
                 u.skipped_quiz = (User.getCookie('skipped_quiz')) ? User.getCookie('skipped_quiz').split(',') : [];
             }
         });
 
         // rank : desc clear_game, desc clear_time
-        users.sort((a, b) => { 
-            if (a.clear_game === b.clear_game){
+        users.sort((a, b) => {
+            if (a.clear_game === b.clear_game) {
                 return b.clear_time * 1 - a.clear_time * 1 // desc
-              } else {
+            } else {
                 return b.clear_game * 1 - a.clear_game * 1 // desc
-              }
+            }
         });
 
         // save updated users in the local storage
@@ -262,9 +262,9 @@ class Quiz {
 
         // make skip button non-clickable
         document.getElementById('skip').classList.add('no-click');
-        
+
         if (str) document.getElementById('game_over_title').innerText = str;
-        
+
         let game_over = document.getElementById('game_over');
         let start_over = document.getElementById('start_over');
         game_over.classList.remove('hide');
