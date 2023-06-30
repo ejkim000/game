@@ -56,18 +56,18 @@ header h1 {
 }
 
 .start-block input {
-    width: max(40vw, 150px);
+    width: max(28vw, 150px);
     height: 6vw;
     border: none;
     border-radius: 6px;
-    font-size: 3vw;
-    padding: 1vw;
+    font-size: min(3vw, 2rem);
+    padding: 10px;
     background-color: #BFD641;
     border: 2px solid black;
 }
 
 .start-btn {
-    font-size: min(3vw, 2.5rem);
+    font-size: min(3vw, 2rem);
     text-align: center;
     border-radius: 10px;
     color: black;
@@ -84,8 +84,8 @@ header h1 {
 }
 
 .start-block li {
-    font-size: min(2.5vw, 1.5rem);
-    line-height: 1.7;
+    font-size: min(2.5vw, 2rem);
+    line-height: 1.6;
 }
 
 .msg {
