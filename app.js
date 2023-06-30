@@ -278,6 +278,7 @@ class Quiz {
             this.user.solved_quiz = [];
             this.user.skipped_quiz = [];
             this.user.clear_time = 60;
+            this.user.clear_game = 0;
 
             // update cookies
             User.setCookie(this.user);

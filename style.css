@@ -32,7 +32,7 @@ header h1 {
     letter-spacing: 0.5vw;
     width: 100%;
     text-align: center;
-    margin: 1vw;
+    margin: 3vw 1vw 1vw 1vw;
 }
 
 /* start page */
@@ -281,7 +281,7 @@ header h1 {
 }
 
 .game-over.show {
-    top: -80vh;
+    top: -70vh;
 }
 
 .game-over.hide {
