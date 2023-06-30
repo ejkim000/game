@@ -178,7 +178,7 @@ class Quiz {
                         // update cookie
                         User.setCookie(this.user);
                         //show you won
-                        this.showGameOver('YOU WON!');
+                        this.showGameOver('YOU WON!', 1);
                     } else {
                         // update cookie
                         User.setCookie(this.user);
@@ -223,13 +223,13 @@ class Quiz {
         }, 1000);
     }
 
-    updateUserInfo(user_name) {
+    updateUserInfo(user_name, clear_game) {
         // get all users saved in local storange
         let users = JSON.parse(localStorage.getItem('users'));
 
         users.forEach((u) => {
             // update current user's info when cleared the game
-            if (u.user_name == user_name && u.clear_game == 1) {
+            if (u.user_name == user_name && clear_game != 0) {
                 u.clear_time = User.getCookie('clear_time') * 1;
                 u.clear_game = User.getCookie('clear_game') * 1;
                 u.solved_quiz = (User.getCookie('solved_quiz')) ? User.getCookie('solved_quiz').split(',') : [];
@@ -250,12 +250,12 @@ class Quiz {
         localStorage.setItem('users', JSON.stringify(users));
     }
 
-    showGameOver(str) {
+    showGameOver(str = '', clear_game = 0) {
         // stop timer
         clearInterval(this.myTimer);
 
-        // update user info 
-        this.updateUserInfo(this.user.user_name);
+        // update user info
+        this.updateUserInfo(this.user.user_name, clear_game);
 
         // show user rank
         this.showUserRank();
