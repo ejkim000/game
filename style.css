@@ -281,7 +281,7 @@ header h1 {
 }
 
 .game-over.show {
-    top: -70vh;
+    top: -80vh;
 }
 
 .game-over.hide {

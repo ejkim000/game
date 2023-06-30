@@ -74,6 +74,30 @@ const QUIZZES = [
     {
         "q": "DOM stands for Document _______ Model of the page.",
         "a": "OBJECT"
+    },
+    {
+        "q": "DOM stands for _________ Object Model of the page.",
+        "a": "DOCUMENT"
+    },
+    {
+        "q": "DOM stands for Document Object _______ of the page.",
+        "a": "MODEL"
+    },
+    {
+        "q": "__________ elements = elements with a meaning (in HTML)",
+        "a": "SEMANTIC"
+    },
+    {
+        "q": "The __ tag defines an unordered (bulleted) list.",
+        "a": "UL"
+    },
+    {
+        "q": "The __ tag defines an ordered list.",
+        "a": "OL"
+    },
+    {
+        "q": "Scripts can be placed inside the body or the _____ section of an HTML page or inside both.",
+        "a": "HEAD"
     }
 ];
 
