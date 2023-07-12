@@ -128,7 +128,7 @@ class Quiz {
         const bubble_body = document.getElementById('bubble_body');
         const user_answer = document.getElementById('a');
         const bubbles = [];
-        const pop_audio = new Audio(window.location.origin + '/sound/bubble-pop.wav');
+        //const pop_audio = new Audio(window.location.origin + '/sound/bubble-pop.wav');
         let answer_arr = this.answer.split('');
         let answer_length = answer_arr.length;
 
@@ -155,7 +155,7 @@ class Quiz {
                 e.preventDefault();
 
                 // play pop sound
-                pop_audio.play();
+                //pop_audio.play();
 
                 // pop the bubble : have to add the pop pciture
                 bubbles[i].classList.add('pop');
